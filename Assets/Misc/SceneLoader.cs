@@ -7,6 +7,7 @@ public class SceneLoader : MonoBehaviour
 {
     string One_Particles = "1-Particles";
     string Two_NoPalletes = "2-No Pallettes";
+    string Three_Droste = "3-Droste";
 
 
     // Update is called once per frame
@@ -19,6 +20,10 @@ public class SceneLoader : MonoBehaviour
         else if (Input.GetKeyDown(KeyCode.Alpha2))
         {
             loadScene(Two_NoPalletes);
+        }
+        else if (Input.GetKeyDown(KeyCode.Alpha3))
+        {
+            loadScene(Three_Droste);
         }
     }
 
