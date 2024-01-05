@@ -40,9 +40,13 @@ public class Painter : MonoBehaviour
         outputImage = new Texture2D(width, height);
         this.GetComponent<RawImage>().texture = outputImage;
 
-        pNoiseR = perlinNoise(width, height, scaleR, perlinOffsetXR, perlinOffsetYR);
-        pNoiseG = perlinNoise(width, height, scaleG, perlinOffsetXG, perlinOffsetYG);
-        pNoiseB = perlinNoise(width, height, scaleB, perlinOffsetXB, perlinOffsetYB);
+        pNoiseR = new Texture2D(width, height);
+        pNoiseG = new Texture2D(width, height);
+        pNoiseB = new Texture2D(width, height);
+
+        perlinNoise(width, height, scaleR, perlinOffsetXR, perlinOffsetYR, pNoiseR);
+        perlinNoise(width, height, scaleG, perlinOffsetXG, perlinOffsetYG, pNoiseG);
+        perlinNoise(width, height, scaleB, perlinOffsetXB, perlinOffsetYB, pNoiseB);
     }
 
     // Update is called once per frame
@@ -55,9 +59,9 @@ public class Painter : MonoBehaviour
         perlinOffsetXB += xPerlinSpeedB * Time.deltaTime;
         perlinOffsetYB += yPerlinSpeedB * Time.deltaTime;
 
-        pNoiseR = perlinNoise(width, height, scaleR, perlinOffsetXR, perlinOffsetYR);
-        pNoiseG = perlinNoise(width, height, scaleG, perlinOffsetXG, perlinOffsetYG);
-        pNoiseB = perlinNoise(width, height, scaleB, perlinOffsetXB, perlinOffsetYB);
+        perlinNoise(width, height, scaleR, perlinOffsetXR, perlinOffsetYR, pNoiseR);
+        perlinNoise(width, height, scaleG, perlinOffsetXG, perlinOffsetYG, pNoiseG);
+        perlinNoise(width, height, scaleB, perlinOffsetXB, perlinOffsetYB, pNoiseB);
 
         Color[] outputColors = outputImage.GetPixels();
         Color[] perlinColorsR = pNoiseR.GetPixels();
@@ -72,10 +76,8 @@ public class Painter : MonoBehaviour
         outputImage.Apply();
     }
 
-    Texture2D perlinNoise(int w, int h, float scale, float offsetX, float offsetY)
+    void perlinNoise(int w, int h, float scale, float offsetX, float offsetY, Texture2D destTexture)
     {
-        Texture2D tex = new Texture2D(w, h);
-
         for (int x = 0; x < w; x++)
         {
             for (int y = 0; y < h; y++)
@@ -85,11 +87,10 @@ public class Painter : MonoBehaviour
 
                 float noiseValue = Mathf.PerlinNoise(xCoord, yCoord);
                 Color color = new Color(noiseValue, 0, 0, 1);
-                tex.SetPixel(x, y, color);
+                destTexture.SetPixel(x, y, color);
             }
         }
-        tex.Apply();
-        return tex;
+        destTexture.Apply();
     }
 
 

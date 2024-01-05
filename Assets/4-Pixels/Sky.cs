@@ -67,7 +67,7 @@ public class Sky : MonoBehaviour
         cloudOffsetX += cloudSpeedX * Time.deltaTime;
         cloudOffsetY += cloudSpeedY * Time.deltaTime;
 
-        cloudLayer = perlinNoise(width, height, cloudscale, cloudOffsetX, cloudOffsetY);
+        perlinNoiseClouds(width, height, cloudscale, cloudOffsetX, cloudOffsetY);
         drawClouds();
     }
 
@@ -141,9 +141,8 @@ public class Sky : MonoBehaviour
         finalTexture.Apply();
     }
 
-        Texture2D perlinNoise(int w, int h, float scale, float offsetX, float offsetY)
+        void perlinNoiseClouds(int w, int h, float scale, float offsetX, float offsetY)
     {
-        Texture2D tex = new Texture2D(w, h);
 
         for (int x = 0; x < w; x++)
         {
@@ -154,10 +153,9 @@ public class Sky : MonoBehaviour
 
                 float noiseValue = Mathf.PerlinNoise(xCoord, yCoord);
                 Color color = new Color(noiseValue, 0, 0, 1);
-                tex.SetPixel(x, y, color);
+                cloudLayer.SetPixel(x, y, color);
             }
         }
-        tex.Apply();
-        return tex;
+        cloudLayer.Apply();
     }
 }
