@@ -19,6 +19,11 @@ public class Emitter : MonoBehaviour
     [SerializeField]
     GameObject particlePrefab;
 
+    private void Start()
+    {
+        Screen.SetResolution(2560, 1440, true);
+    }
+
     // Update is called once per frame
     void Update()
     {

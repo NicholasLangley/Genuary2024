@@ -9,14 +9,6 @@ public class DrostePainter : MonoBehaviour
     public int width = 256;
     public int height = 256;
 
-    [SerializeField] 
-    [Range(0,1)]
-    float xOffset = 0;
-
-    [SerializeField]
-    [Range(0, 1)]
-    public float yOffset = 0;
-
     [SerializeField]
     [Range(0.5f, 1.5f)]
     public float zoomSpeed = 0.1f;
