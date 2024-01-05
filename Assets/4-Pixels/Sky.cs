@@ -37,8 +37,6 @@ public class Sky : MonoBehaviour
         }
     };
 
-    string starFilePath = "./Assets/4-Pixels/stars.csv";
-
     List<star> stars;
 
     Color sky = new Color(0, 0, 0.1f, 1);
@@ -104,7 +102,7 @@ public class Sky : MonoBehaviour
 
     void populateStars()
     {
-        using (StreamReader sr = new StreamReader(starFilePath))
+        using (StreamReader sr = new StreamReader(Application.streamingAssetsPath + "/stars.csv"))
         {
             string currentLine;
             // currentLine will be null when the StreamReader reaches the end of file
