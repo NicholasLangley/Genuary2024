@@ -9,6 +9,12 @@ public class SceneLoader : MonoBehaviour
     string Two_NoPalletes = "2-No Pallettes";
     string Three_Droste = "3-Droste";
     string Four_Pixel = "4-Pixels";
+    string Five_VeraMolnar = "5-VeraMolnar";
+    string Six_ = "";
+    string Seven_ = "";
+    string Eight_ = "";
+    string Nine_ = "";
+    string Ten_ = "";
 
 
     // Update is called once per frame
@@ -33,6 +39,11 @@ public class SceneLoader : MonoBehaviour
         {
             Screen.SetResolution(1440, 1440, true);
             loadScene(Four_Pixel);
+        }
+        else if (Input.GetKeyDown(KeyCode.Alpha5))
+        {
+            Screen.SetResolution(2560, 1440, true);
+            loadScene(Five_VeraMolnar);
         }
     }
 
