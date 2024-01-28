@@ -12,7 +12,7 @@ public class SceneLoader : MonoBehaviour
     string Five_VeraMolnar = "5-VeraMolnar";
     string Six_ = "";
     string Seven_ = "";
-    string Eight_ = "";
+    string Eight_ChaoticSystem = "8-ChaoticSystem";
     string Nine_ = "";
     string Ten_ = "";
 
@@ -44,6 +44,11 @@ public class SceneLoader : MonoBehaviour
         {
             Screen.SetResolution(2560, 1440, true);
             loadScene(Five_VeraMolnar);
+        }
+        else if (Input.GetKeyDown(KeyCode.Alpha8))
+        {
+            Screen.SetResolution(2560, 1440, true);
+            loadScene(Eight_ChaoticSystem);
         }
     }
 

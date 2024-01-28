@@ -19,3 +19,7 @@ Scrolling clouds (perlin noise again) <br />
 5 - Vera Molnár<br />
 Random grid of shuffling lines <br />
 ![](https://github.com/NicholasLangley/Genuary2024/blob/master/GIFs/5-VeraMolnar.gif)
+
+8 - Chaotic System <br />
+Double Pendulum drawing with a particle system. Shaders to color rods/spheres based on current velocity <br />
+![](https://github.com/NicholasLangley/Genuary2024/blob/master/GIFs/8-ChaoticSystem.gif)
